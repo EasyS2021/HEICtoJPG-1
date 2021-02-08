@@ -24,11 +24,11 @@ namespace HEICtoJPG
 			{
 				Console.WriteLine("Checking directory: " + arg);
 				
-				if(arg.Contains("/source") )sourcePath = GetPath(arg);
-				if (arg.Contains("/target")) targetPath = GetPath(arg);
-				if (arg.Contains("/delete")) flag = true;
-				if (arg.Contains("/jpg")) imageType = "jpg";
-				if (arg.Contains("/png")) imageType = "png";
+				if(arg.ToLower().Contains("/source") )sourcePath = GetPath(arg);
+				if (arg.ToLower().Contains("/target")) targetPath = GetPath(arg);
+				if (arg.ToLower().Contains("/delete")) flag = true;
+				if (arg.ToLower().Contains("/jpg")) imageType = ".jpg";
+				if (arg.ToLower().Contains("/png")) imageType = ".png";
 			}
 			if(sourcePath=="") sourcePath= Directory.GetCurrentDirectory();
 			if (targetPath == "") targetPath = Directory.GetCurrentDirectory();
@@ -63,7 +63,7 @@ namespace HEICtoJPG
 		}
 		static void ConvertImage(string fileToConvert, string exportPath)
 		{
-			string exportFilePath = Path.Combine(exportPath, Path.GetFileNameWithoutExtension(Path.GetFileName(fileToConvert))) + "."+imageType;
+			string exportFilePath = Path.Combine(exportPath, Path.GetFileNameWithoutExtension(Path.GetFileName(fileToConvert))) + imageType;
 			string outFilename = Path.GetFileName(exportFilePath);
 			string ext = Path.GetExtension(outFilename);
 			string imageExtension = Path.GetExtension(fileToConvert).ToLower();
