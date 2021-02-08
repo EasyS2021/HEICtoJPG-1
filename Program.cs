@@ -26,8 +26,6 @@ namespace HEICtoJPG
 				
 				if(arg.Contains("/source") )sourcePath = GetPath(arg);
 				if (arg.Contains("/target")) targetPath = GetPath(arg);
-				
-				
 				if (arg.Contains("/delete")) flag = true;
 				if (arg.Contains("/jpg")) imageType = "jpg";
 				if (arg.Contains("/png")) imageType = "png";
