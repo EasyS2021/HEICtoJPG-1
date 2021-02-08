@@ -20,6 +20,7 @@ namespace HEICtoJPG
 			string sourcePath = "", targetPath = "";
 			string[] filesInFolder;
 			bool flag = false;
+			sourcePath =targetPath= Directory.GetCurrentDirectory();
 			foreach (var arg in args)
 			{
 				Console.WriteLine("Checking directory: " + arg);
@@ -30,8 +31,6 @@ namespace HEICtoJPG
 				if (arg.ToLower().Contains("/jpg")) imageType = ".jpg";
 				if (arg.ToLower().Contains("/png")) imageType = ".png";
 			}
-			if(sourcePath=="") sourcePath= Directory.GetCurrentDirectory();
-			if (targetPath == "") targetPath = Directory.GetCurrentDirectory();
 			
 			filesInFolder = Directory.GetFiles(sourcePath);
 			foreach (var file in filesInFolder)
